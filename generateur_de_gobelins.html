@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Générateur de gobelins</title>
+</head>
+
+<body>
+  <script>
+
+    const nb_gobelin = 10;
+    let gobelins = {};
+
+    // votre code ici
+    let cosonantList = ["G", "B", "L", "N"];
+    let vowelList = ["A", "E", "I", "O", "U", "Y"];
+
+    function generateGoblin(gobelinNumber) {
+        // Partie 1: Génération du nom
+
+        // a) Premier lettre
+        let syllabeNumber = Math.floor(Math.random() * (3 - 1 + 1))
+        
+        let nameFirstPart = Math.random() > 0.5 ? "G" : "B";
+        let nameSecondPart = vowelList[Math.floor(Math.random() * vowelList.length)];
+        let nameThirdPart = "";
+
+        for(i = 0; i < syllabeNumber; i++) 
+        {
+          nameThirdPart += cosonantList[Math.floor(Math.random() * cosonantList.length)];
+          nameThirdPart += vowelList[Math.floor(Math.random() * vowelList.length)];
+        }
+
+        let fullName = nameFirstPart + nameSecondPart + nameThirdPart;
+        console.log(fullName);
+
+        // b) Génération de l'age
+        let age = Math.floor(Math.random() * (35 - 5 + 1) + 5);
+        console.log(age);
+
+        // c) Génération des dents
+        let teeths = Math.floor(Math.random() * (28 - 17 + 1) + 17);
+        console.log(teeths);
+
+        calculPart(gobelinNumber);
+    }
+
+    function calculPart(gobelinNumber) {
+      console.log(gobelinNumber);
+    }
+
+    generateGoblin(nb_gobelin);
+
+    console.log(gobelins);
+
+  </script>
+</body>
+
+</html>
